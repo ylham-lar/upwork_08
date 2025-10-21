@@ -11,8 +11,7 @@ class IpAddresController extends Controller
 {
     public function index()
     {
-
-        $ip_Addresses = IpAddress::orderBy('id','desc')
+        $ip_Addresses = IpAddress::orderBy('id', 'desc')
             ->get();
 
         return view('admin.ipAddres.index')->with([

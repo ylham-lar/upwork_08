@@ -25,7 +25,7 @@ class LoginController extends Controller
 
             return to_route('admin.dashboard')
                 ->with([
-                    'success' => (__('app.successfullyLoggedIn')),
+                    'success' => (__('SuccessfullyLoggedIn')),
                 ]);
         }
 
@@ -44,7 +44,7 @@ class LoginController extends Controller
 
         return redirect('/')
             ->with([
-                'success' => (__('app.successfullyLoggedOut')),
+                'success' => (__('SuccessfullyLoggedOut')),
             ]);
     }
 }

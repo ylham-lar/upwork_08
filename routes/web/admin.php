@@ -47,8 +47,6 @@ Route::middleware('auth')
             });
     });
 
-
-
 Route::middleware('auth')
     ->group(function () {
         Route::post('logout', [LoginController::class, 'destroy'])->name('logout');

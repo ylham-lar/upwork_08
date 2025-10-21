@@ -92,8 +92,8 @@
                         Work
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="">Works</a></li>
-                        <li><a class="dropdown-item" href="">Propoals</a></li>
+                        <li><a class="dropdown-item" href="{{ route('admin.work') }}">Works</a></li>
+                        <li><a class="dropdown-item" href="{{ route('admin.proposal') }}">Propoals</a></li>
                     </ul>
                 </div>
             </ul>

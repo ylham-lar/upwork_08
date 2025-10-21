@@ -14,7 +14,9 @@ use App\Http\Controllers\Web\admin\DashboardController;
 use App\Http\Controllers\Web\admin\UserAgentController;
 use App\Http\Controllers\Web\admin\FreelancerController;
 use App\Http\Controllers\Web\admin\AuthAttemptController;
+use App\Http\Controllers\Web\admin\ProposalController;
 use App\Http\Controllers\Web\admin\VerificationController;
+use App\Http\Controllers\Web\admin\WorkController;
 
 Route::middleware('guest')
     ->group(function () {
@@ -40,6 +42,8 @@ Route::middleware('auth')
                 Route::get('skill', [SkillController::class, 'index'])->name('skill');
                 Route::get('location', [LocationController::class, 'index'])->name('location');
                 Route::get('review', [ReviewController::class, 'index'])->name('review');
+                Route::get('work', [WorkController::class, 'index'])->name('work');
+                Route::get('proposal', [ProposalController::class, 'index'])->name('proposal');
             });
     });
 

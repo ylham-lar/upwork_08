@@ -8,7 +8,7 @@
         <thead class="small">
             <tr>
                 <th>Id</th>
-                <th>Location</th>
+                <th>Location Id</th>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Avatar</th>
@@ -25,7 +25,7 @@
             @foreach($freelancers as $freelancer)
             <tr>
                 <td>{{ $freelancer->id }}</td>
-                <td>{{$freelancer->location_id}}</td>
+                <td><a href="{{ route('v1.admin.location', ['location' => $freelancer->location_id]) }}" target="_blank">{{$freelancer->location?->id}}</a></td>
                 <td>{{$freelancer->first_name}}</td>
                 <td>{{$freelancer->last_name}}</td>
                 <td>{{$freelancer->avatar}}</td>

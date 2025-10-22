@@ -9,9 +9,22 @@ use Illuminate\Http\Request;
 
 class ReviewController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $reviews = Review::orderBy('id')
+        $request->validate([
+            'client' => ['nullable', 'integer', 'min:1'],
+            'freelancer' => ['nullable', 'integer', 'min:1'],
+            'review' => ['nullable', 'integer', 'min:1'],
+        ]);
+
+        $filter_client = $request->has('client') ? $request->client : null;
+        $filter_freelancer = $request->has('freelancer') ? $request->freelancer : null;
+        $filter_review = $request->has('review') ? $request->review : null;
+
+        $reviews = Review::when(isset($filter_client), fn ($query) => $query->where('client_id', $filter_client))
+            ->when(isset($filter_freelancer), fn ($query) => $query->where('freelancer_id', $filter_freelancer))
+            ->when(isset($filter_review), fn ($query) => $query->where('id', $filter_review))
+            ->orderBy('id')
             ->get();
 
         return view('admin.review.index')->with([

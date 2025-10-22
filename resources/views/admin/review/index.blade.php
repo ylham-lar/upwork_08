@@ -21,8 +21,8 @@
             @foreach($reviews as $review)
             <tr>
                 <td>{{$review->id}}</td>
-                <td>{{$review->freelancer_id}}</td>
-                <td>{{$review->client_id}}</td>
+                <td><a href="{{ route('v1.admin.freelancer', ['freelancer' => $review->freelancer_id]) }}" target="_blank">{{$review->freelancer?->id}}</a></td>
+                <td><a href="{{ route('v1.admin.client', ['client' => $review->client_id]) }}" target="_blank">{{$review->client->id }}</a></td>
                 <td>{{$review->from}}</td>
                 <td><i class="bi bi-star-fill text-warning pe-1"></i>{{$review->rating}}</td>
                 <td>{{ Str::limit($review->comment, 90) }}</td>

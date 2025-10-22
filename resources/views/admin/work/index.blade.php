@@ -28,16 +28,17 @@
             @foreach($works as $work)
             <tr>
                 <td>{{$work->id}}</td>
-                <td><a href="{{ route('admin.client', ['client' => $work->client_id]) }}" class="text-decoration-none" target="_blank"><i class="bi-box-arrow-up-right">{{$work->client->first_name }} {{$work->client->lastname}} </a> </td>
-                <td>{{$work->profile?->id }}</td>
+                <td> <a href="{{ route('v1.admin.client', ['client' => $work->client_id]) }}" target="_blank">{{$work->client->first_name }} {{$work->client->last_name}}</a></td>
+                <td> <a href="{{ route('v1.admin.freelancer', ['freelancer' => $work->freelancer_id]) }}" target="_blank">{{$work->freelancer?->first_name}} {{$work->freelancer?->last_name}}</a></td>
+                <td> <a href="{{ route('v1.admin.profile', ['profile' => $work->profile_id]) }}" target="_blank">{{$work->profile?->id}}</a></td>
                 <td><i class="bi bi-currency-dollar"></i>{{$work->price}}</td>
                 <td>{{$work->experience_level()}}</td>
                 <td>{{$work->job_type()}}</td>
                 <td>{{$work->project_type()}}</td>
                 <td>{{$work->project_length()}}</td>
                 <td>{{$work->hours_per_week()}}</td>
-                <td><a href="{{ route('admin.skill', ['work' => $work->id]) }}" class="text-decoration-none" target="_blank"><i class="bi-box-arrow-up-right"> </i>{{ $work->work_skills_count }}</a></td>
-                <td><a href="{{ route('admin.proposal', ['work' => $work->id]) }}" class="text-decoration-none" target="_blank"><i class="bi-box-arrow-up-right"> </i>{{ $work->proposals_count }}</a></td>
+                <td><a href="{{ route('v1.admin.skill', ['work' => $work->id]) }}" class="text-decoration-none" target="_blank"> </i>{{ $work->work_skills_count }}</a></td>
+                <td><a href="{{ route('v1.admin.proposal', ['work' => $work->id]) }}" class="text-decoration-none" target="_blank"> </i>{{ $work->proposals_count }}</a></td>
                 <td><i class="bi bi-clock pe-1"></i>{{$work->last_viewed->format('H:i:s d.m.Y')}}</td>
                 <td><i class="bi bi-clock pe-1"></i>{{$work->created_at->format('H:i:s d.m.Y')}}</td>
                 <td><i class="bi bi-clock pe-1"></i>{{$work->updated_at->format('H:i:s d.m.Y')}}</td>

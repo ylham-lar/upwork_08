@@ -21,9 +21,9 @@
             @foreach($proposals as $proposal)
             <tr>
                 <td>{{$proposal->id }}</td>
-                <td>{{$proposal->work_id}}</td>
-                <td>{{$proposal->freelancer_id}}</td>
-                <td>{{$proposal->profile_id}}</td>
+                <td><a href="{{ route('v1.admin.work', ['work' => $proposal->work_id]) }}" target="_blank">{{$proposal->work->id}}</a></td>
+                <td><a href="{{ route('v1.admin.freelancer', ['freelancer' => $proposal->freelancer_id]) }}" target="_blank">{{$proposal->freelancer?->id}}</a></td>
+                <td><a href="{{ route('v1.admin.profile', ['profile' => $proposal->profile_id]) }}" target="_blank">{{$proposal->profile?->id}}</a></td>
                 <td>{{ Str::limit($proposal->cover_letter, 90) }}</td>
                 <td> <span class="badge bg-{{ $proposal->statuscolor() }}-subtle text-{{ $proposal->statuscolor() }}-emphasis">{{$proposal->status()}}</span></td>
                 <td><i class="bi bi-clock pe-1"></i>{{$proposal->created_at->format('H:i:s d.m.Y')}}</td>

@@ -26,7 +26,7 @@
             @foreach($clients as $client)
             <tr>
                 <td>{{ $client->id }}</td>
-                <td>{{$client->location_id}}</td>
+                <td><a href="{{ route('v1.admin.location', ['location' => $client->location_id]) }}" target="_blank">{{$client->location?->id}}</a></td>
                 <td>{{$client->first_name}}</td>
                 <td>{{$client->last_name}}</td>
                 <td>{{$client->avatar}}</td>

@@ -23,8 +23,8 @@
             @foreach($visitors as $visitor)
             <tr class="p-3">
                 <td rowspan="1">{{ $visitor->id }}</td>
-                <td>{{$visitor->ip_address_id}}</td>
-                <td>{{$visitor->user_agent_id}}</td>
+                <td><a href="{{ route('v1.admin.ipaddress', ['ip_address' => $visitor->ip_address_id]) }}" target="_blank">{{$visitor->ip_address?->id }} </a></td>
+                <td><a href="{{ route('v1.admin.useragent', ['useragent' => $visitor->useragent_id]) }}" target="_blank">{{$visitor->useragent?->id }} </a></td>
                 <td>{{$visitor->hits}}</td>
                 <td>{{$visitor->suspect_hits}}</td>
                 <td>{{$visitor->robot}}</td>

@@ -12,14 +12,14 @@ class WorkController extends Controller
     public function index(Request $request)
     {
         $request->validate([
-            'client_id' => ['nullable', 'integer', 'min:1'],
-            'freelancer_id' => ['nullable', 'integer', 'min:1'],
-            'profile_id' => ['nullable', 'integer', 'min:1'],
+            'client' => ['nullable', 'integer', 'min:1'],
+            'freelancer' => ['nullable', 'integer', 'min:1'],
+            'profile' => ['nullable', 'integer', 'min:1'],
         ]);
 
-        $filter_client = $request->has('client_id') ? $request->client_id : null;
-        $filter_freelancer = $request->has('freelancer_id') ? $request->freelancer_id : null;
-        $filter_profile = $request->has('profile_id') ? $request->profile_id : null;
+        $filter_client = $request->has('client') ? $request->client : null;
+        $filter_freelancer = $request->has('freelancer') ? $request->freelancer : null;
+        $filter_profile = $request->has('profile') ? $request->profile : null;
 
         $works = Work::when(isset($filter_client), fn ($query) => $query->where('client_id', $filter_client))
             ->when(isset($filter_freelancer), fn ($query) => $query->where('freelancer_id', $filter_freelancer))

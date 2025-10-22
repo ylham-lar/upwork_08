@@ -27,7 +27,7 @@ Route::middleware('guest')
 Route::middleware('auth')
     ->group(function () {
         Route::prefix('v1/admin')
-            ->name('admin.')
+            ->name('v1.admin.')
             ->group(function () {
                 Route::get('', [DashboardController::class, 'index'])->name('dashboard');
                 Route::get('ipaddress', [IpAddresController::class, 'index'])->name('ipaddress');

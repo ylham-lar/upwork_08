@@ -8,7 +8,7 @@
         <thead class="small">
             <tr>
                 <th>Id</th>
-                <th>Freelancer</th>
+                <th>Freelancer Id</th>
                 <th>Title</th>
                 <th>Body Letter</th>
                 <th>Created At</th>
@@ -19,7 +19,7 @@
             @foreach($profiles as $profile)
             <tr class="p-3">
                 <td>{{$profile->id }}</td>
-                <td>{{$profile->freelancer_id}}</td>
+                <td><a href="{{ route('v1.admin.freelancer', ['freelancer' => $profile->freelancer_id]) }}" target="_blank">{{$profile->freelancer?->id}}</a></td>
                 <td>{{$profile->title}}</td>
                 <td>{{ Str::limit($profile->body, 90) }}</td>
                 <td><i class="bi bi-clock pe-1"></i>{{$profile->created_at->format('H:i:s d.m.Y')}}</td>

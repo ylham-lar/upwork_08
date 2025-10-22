@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('content')
-<div class="h2 pt-3 mb-3">
+<div class="h2 p-3 mb-3">
     Visitors
 </div>
 <div class="table-responsive text-dark">

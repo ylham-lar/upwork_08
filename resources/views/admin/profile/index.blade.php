@@ -21,7 +21,7 @@
                 <td>{{$profile->id }}</td>
                 <td>{{$profile->freelancer_id}}</td>
                 <td>{{$profile->title}}</td>
-                <td>{{$profile->body}}</td>
+                <td>{{ Str::limit($profile->body, 90) }}</td>
                 <td><i class="bi bi-clock pe-1"></i>{{$profile->created_at}}</td>
                 <td><i class="bi bi-clock pe-1"></i>{{$profile->updated_at}}</td>
             </tr>

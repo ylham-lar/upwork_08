@@ -21,7 +21,7 @@
             <tr class="p-3">
                 <td>{{$verification->id}}</td>
                 <td>{{$verification->username}}</td>
-                <td>{{$verification->code}}</td>
+                <td><i class="bi bi-person-lock pe-1"></i>{{$verification->code}}</td>
                 <td>{{$verification->getMethod()}}</td>
                 <td> <span class="badge bg-{{ $verification->StatusColor()}}-subtle text-{{ $verification->StatusColor() }}"> {{ $verification->Status() }} </span></td>
                 <td><i class="bi bi-clock pe-1"></i>{{$verification->created_at}}</td>

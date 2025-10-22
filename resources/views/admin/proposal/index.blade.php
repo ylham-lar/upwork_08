@@ -24,7 +24,7 @@
                 <td>{{$proposal->work_id}}</td>
                 <td>{{$proposal->freelancer_id}}</td>
                 <td>{{$proposal->profile_id}}</td>
-                <td>{{$proposal->cover_letter}}</td>
+                <td>{{ Str::limit($proposal->cover_letter, 90) }}</td>
                 <td> <span class="badge bg-{{ $proposal->statuscolor() }}-subtle text-{{ $proposal->statuscolor() }}-emphasis">{{$proposal->status()}}</span></td>
                 <td><i class="bi bi-clock pe-1"></i>{{$proposal->created_at}}</td>
                 <td><i class="bi bi-clock pe-1"></i>{{$proposal->updated_at}}</td>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Profile;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller

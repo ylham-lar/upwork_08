@@ -25,7 +25,7 @@
                 <td>{{$review->client_id}}</td>
                 <td>{{$review->from}}</td>
                 <td><i class="bi bi-star-fill text-warning pe-1"></i>{{$review->rating}}</td>
-                <td>{{$review->comment}}</td>
+                <td>{{ Str::limit($review->comment, 90) }}</td>
                 <td><i class="bi bi-clock pe-1"></i>{{$review->created_at}}</td>
                 <td><i class="bi bi-clock pe-1"></i>{{$review->updated_at}}</td>
             </tr>

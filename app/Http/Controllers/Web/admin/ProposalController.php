@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Web\admin;
 
-use App\Http\Controllers\Controller;
 use App\Models\Proposal;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ProposalController extends Controller
 {

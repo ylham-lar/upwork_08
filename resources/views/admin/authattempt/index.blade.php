@@ -3,7 +3,7 @@
 <div class="h2 p-3 mb-3">
     Auth Attempts
 </div>
-<div class="table-responsive text-dark">
+<div class="table-responsive text-dark text-center">
     <table class="table table-striped table-hover table-bordered table-sm">
         <thead class="small">
             <tr>
@@ -24,8 +24,8 @@
                 <td>{{$authAttempt->user_agent_id}}</td>
                 <td>{{$authAttempt->username}}</td>
                 <td>{{$authAttempt->event}}</td>
-                <td><i class="bi bi-clock pe-1"></i>{{$authAttempt->created_at }}</td>
-                <td><i class="bi bi-clock pe-1"></i>{{$authAttempt->updated_at }}</td>
+                <td><i class="bi bi-clock pe-1"></i>{{$authAttempt->created_at->format('H:i:s d.m.Y') }}</td>
+                <td><i class="bi bi-clock pe-1"></i>{{$authAttempt->updated_at->format('H:i:s d.m.Y') }}</td>
             </tr>
             @endforeach
         </tbody>

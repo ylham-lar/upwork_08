@@ -3,7 +3,7 @@
 <div class="h2 p-3 mb-3">
     Reviews
 </div>
-<div class="table-responsive text-dark">
+<div class="table-responsive text-dark text-center">
     <table class="table table-striped table-hover table-bordered table-sm">
         <thead class="small">
             <tr>
@@ -26,8 +26,8 @@
                 <td>{{$review->from}}</td>
                 <td><i class="bi bi-star-fill text-warning pe-1"></i>{{$review->rating}}</td>
                 <td>{{ Str::limit($review->comment, 90) }}</td>
-                <td><i class="bi bi-clock pe-1"></i>{{$review->created_at}}</td>
-                <td><i class="bi bi-clock pe-1"></i>{{$review->updated_at}}</td>
+                <td><i class="bi bi-clock pe-1"></i>{{$review->created_at->format('H:i:s d.m.Y')}}</td>
+                <td><i class="bi bi-clock pe-1"></i>{{$review->updated_at->format('H:i:s d.m.Y')}}</td>
             </tr>
             @endforeach
         </tbody>

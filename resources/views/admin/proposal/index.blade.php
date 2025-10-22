@@ -3,7 +3,7 @@
 <div class="h2 p-3 mb-3">
     Proposals
 </div>
-<div class="table-responsive text-dark">
+<div class="table-responsive text-dark text-center">
     <table class="table table-striped table-hover table-bordered table-sm">
         <thead class="small">
             <tr>
@@ -26,8 +26,8 @@
                 <td>{{$proposal->profile_id}}</td>
                 <td>{{ Str::limit($proposal->cover_letter, 90) }}</td>
                 <td> <span class="badge bg-{{ $proposal->statuscolor() }}-subtle text-{{ $proposal->statuscolor() }}-emphasis">{{$proposal->status()}}</span></td>
-                <td><i class="bi bi-clock pe-1"></i>{{$proposal->created_at}}</td>
-                <td><i class="bi bi-clock pe-1"></i>{{$proposal->updated_at}}</td>
+                <td><i class="bi bi-clock pe-1"></i>{{$proposal->created_at->format('H:i:s d.m.Y')}}</td>
+                <td><i class="bi bi-clock pe-1"></i>{{$proposal->updated_at->format('H:i:s d.m.Y')}}</td>
             </tr>
             @endforeach
         </tbody>

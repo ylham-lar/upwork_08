@@ -3,7 +3,7 @@
 <div class="h2 p-3 mb-3">
     Clients
 </div>
-<div class="table-responsive text-dark">
+<div class="table-responsive text-dark text-center">
     <table class="table table-striped table-hover table-bordered table-sm">
         <thead class="small">
             <tr>
@@ -36,8 +36,8 @@
                 <td><span class="badge bg-{{ $client->payment_method_verified_color()}}-subtle text-{{ $client->payment_method_verified_color() }}"> {{$client->payment_method_verified()}} </span></td>
                 <td><i class="bi bi-briefcase pe-1"></i>{{$client->total_jobs}}</td>
                 <td><i class="bi bi-currency-dollar pe-1"></i>{{$client->total_spent}}</td>
-                <td><i class="bi bi-clock pe-1"></i>{{$client->created_at }}</td>
-                <td><i class="bi bi-clock pe-1"></i>{{$client->updated_at }}</td>
+                <td><i class="bi bi-clock pe-1"></i>{{$client->created_at->format('H:i:s d.m.Y') }}</td>
+                <td><i class="bi bi-clock pe-1"></i>{{$client->updated_at->format('H:i:s d.m.Y') }}</td>
             </tr>
             @endforeach
         </tbody>

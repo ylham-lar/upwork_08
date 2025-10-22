@@ -8,9 +8,16 @@ use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
-    public function index()
+
+    public function index(Request $request)
     {
-        $clients = Client::orderBy('id')
+        $request->validate([
+            'location' => ['nullable', 'integer', 'min:1'],
+        ]);
+        $filter_location = $request->has('location') ? $request->location : null;
+
+        $clients = Client::when(isset($filter_location), fn ($query) => $query->where('location_id', $filter_location))
+            ->orderBy('id')
             ->get();
 
         return view('admin.client.index')->with([

@@ -3,7 +3,7 @@
 <div class="h2 p-3 mb-3">
     Freelancers
 </div>
-<div class="table-responsive text-dark">
+<div class="table-responsive text-dark text-center">
     <table class="table table-striped table-hover table-bordered table-sm">
         <thead class="small">
             <tr>
@@ -34,8 +34,8 @@
                 <td><span class="badge bg-{{ $freelancer->verified_color()}}-subtle text-{{ $freelancer->verified_color() }}">{{$freelancer->verified()}}</span></td>
                 <td><i class="bi bi-briefcase pe-1"></i>{{$freelancer->total_jobs}}</td>
                 <td><i class="bi bi-currency-dollar pe-1"></i>{{$freelancer->total_earnings}}</td>
-                <td><i class="bi bi-clock pe-1"></i>{{$freelancer->created_at }}</td>
-                <td><i class="bi bi-clock pe-1"></i>{{$freelancer->updated_at }}</td>
+                <td><i class="bi bi-clock pe-1"></i>{{$freelancer->created_at->format('H:i:s d.m.Y') }}</td>
+                <td><i class="bi bi-clock pe-1"></i>{{$freelancer->updated_at->format('H:i:s d.m.Y') }}</td>
             </tr>
             @endforeach
         </tbody>

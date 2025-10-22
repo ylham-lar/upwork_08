@@ -3,7 +3,7 @@
 <div class="h2 p-3 mb-3">
     Visitors
 </div>
-<div class="table-responsive text-dark">
+<div class="table-responsive text-dark  text-center">
     <table class="table table-striped table-hover table-bordered table-sm">
         <thead class="small">
             <tr>
@@ -30,8 +30,8 @@
                 <td>{{$visitor->robot}}</td>
                 <td>{{$visitor->api}}</td>
                 <td>{{$visitor->disable}}</td>
-                <td><i class="bi bi-clock pe-1"></i>{{$visitor->created_at }}</td>
-                <td><i class="bi bi-clock pe-1"></i>{{$visitor->updated_at }}</td>
+                <td><i class="bi bi-clock pe-1"></i>{{$visitor->created_at->format('H:i:s d.m.Y') }}</td>
+                <td><i class="bi bi-clock pe-1"></i>{{$visitor->updated_at->format('H:i:s d.m.Y') }}</td>
             </tr>
             @endforeach
         </tbody>

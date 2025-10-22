@@ -15,7 +15,7 @@
                         Security
                     </button>
                     <ul class="dropdown-menu">
-                        <li> <a class="dropdown-item" href="{{ route('admin.ipaddres') }}">IpAddres</a></li>
+                        <li> <a class="dropdown-item" href="{{ route('admin.ipaddress') }}">IpAddres</a></li>
                         <li> <a class="dropdown-item" href="{{ route('admin.useragent') }}">UserAgent</a></li>
                         <li> <a class="dropdown-item" href="{{ route('admin.authattempt') }}">AuthAttempt</a></li>
                         <li> <a class="dropdown-item" href="{{ route('admin.visitor') }}">Visitor</a></li>

@@ -3,7 +3,7 @@
 <div class="h2 p-3 mb-3">
     User Agents
 </div>
-<div class="table-responsive text-dark">
+<div class="table-responsive text-dark text-center">
     <table class="table table-striped table-hover table-bordered table-sm">
         <thead class="small">
             <tr>

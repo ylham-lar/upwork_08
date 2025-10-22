@@ -26,11 +26,11 @@ Route::middleware('guest')
 
 Route::middleware('auth')
     ->group(function () {
-        Route::prefix('admin')
+        Route::prefix('v1/admin')
             ->name('admin.')
             ->group(function () {
                 Route::get('', [DashboardController::class, 'index'])->name('dashboard');
-                Route::get('ipaddres', [IpAddresController::class, 'index'])->name('ipaddres');
+                Route::get('ipaddress', [IpAddresController::class, 'index'])->name('ipaddress');
                 Route::get('useragent', [UserAgentController::class, 'index'])->name('useragent');
                 Route::get('authattempt', [AuthAttemptController::class, 'index'])->name('authattempt');
                 Route::get('visitor', [VisitorController::class, 'index'])->name('visitor');

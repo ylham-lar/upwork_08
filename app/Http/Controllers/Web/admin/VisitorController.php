@@ -10,7 +10,7 @@ class VisitorController extends Controller
 {
     public function index()
     {
-        $visitors = Visitor::orderBy('id', 'desc')
+        $visitors = Visitor::orderBy('id')
             ->get();
 
         return view('admin.visitor.index')->with([

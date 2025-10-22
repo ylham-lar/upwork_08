@@ -11,7 +11,7 @@ class UserAgentController extends Controller
     public function index()
     {
 
-        $useragents = UserAgent::orderBy('id', 'desc')
+        $useragents = UserAgent::orderBy('id')
             ->get();
 
         return view('admin.useragent.index')->with([

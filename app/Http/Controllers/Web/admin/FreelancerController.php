@@ -10,7 +10,7 @@ class FreelancerController extends Controller
 {
     public function index()
     {
-        $freelancers = Freelancer::orderBy('id', 'desc')
+        $freelancers = Freelancer::orderBy('id')
             ->get();
 
         return view('admin.freelancer.index')->with([

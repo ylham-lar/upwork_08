@@ -52,6 +52,32 @@ class Work extends Model
         return $this->belongsToMany(Skill::class, 'work_skill');
     }
 
+    public function experience_level()
+    {
+        return ['Entry Level', 'Intermediate', 'Expert'][$this->experience_level];
+    }
+
+    public function job_type()
+    {
+        return ['Hourly', 'Fixed Price'][$this->job_type];
+    }
+    
+    public function project_type()
+    {
+        return ['One-time', 'Ongoing'][$this->project_type];
+    }
+
+    public function project_length()
+    {
+        return ['LessThan1Month', '1to3Months', '3to6Months', 'MoreThan6Months'][$this->project_length];
+    }
+
+    public function hours_per_week()
+    {
+        return ['Less Than 3hrs/week', 'Less Than 30hrs/week'][$this->hours_per_week];
+    }
+
+
     //
 
     public function scopeFilterQuery($query, $f_clientId, $f_freelancerId, $f_profileId, $f_experienceLevels, $f_jobTypes,

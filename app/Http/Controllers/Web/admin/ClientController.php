@@ -10,7 +10,7 @@ class ClientController extends Controller
 {
     public function index()
     {
-        $clients = Client::orderBy('id', 'desc')
+        $clients = Client::orderBy('id')
             ->get();
 
         return view('admin.client.index')->with([

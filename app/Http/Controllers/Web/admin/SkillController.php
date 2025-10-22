@@ -10,7 +10,7 @@ class SkillController extends Controller
 {
     public function index()
     {
-        $skills = Skill::orderBy('id', 'desc')
+        $skills = Skill::orderBy('id')
             ->get();
 
         return view('admin.skill.index')->with([

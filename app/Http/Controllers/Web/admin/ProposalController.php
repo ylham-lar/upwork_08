@@ -10,7 +10,7 @@ class ProposalController extends Controller
 {
     public function index()
     {
-        $proposals = Proposal::orderBy('id', 'desc')
+        $proposals = Proposal::orderBy('id')
             ->get();
 
         return view('admin.proposal.index')->with([

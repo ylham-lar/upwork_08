@@ -38,4 +38,14 @@ class Proposal extends Model
     {
         return $this->belongsTo(Profile::class);
     }
+
+    public function status()
+    {
+        return ['Canceled', 'Pending', 'Accepted'][$this->status];
+    }
+
+    public function statuscolor()
+    {
+        return ['danger', 'warning', 'success'][$this->status];
+    }
 }

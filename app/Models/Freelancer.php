@@ -84,4 +84,14 @@ class Freelancer extends Authenticatable
     {
         return $this->belongsToMany(Skill::class, 'freelancer_skill');
     }
+
+    public function verified()
+    {
+        return ['Not Verified', 'Verified'][$this->verified];
+   
+    }
+    public function verified_color()
+    {
+        return ['danger', 'success'][$this->verified];
+    }
 }

@@ -10,7 +10,7 @@ class AuthAttemptController extends Controller
 {
     public function index()
     {
-        $authAttempts = AuthAttempt::orderBy('id', 'desc')
+        $authAttempts = AuthAttempt::orderBy('id')
             ->get();
 
         return view('admin.authattempt.index')->with([

@@ -28,8 +28,13 @@ class Verification extends Model
         return ['Phone', 'E-mail'][$this->method];
     }
 
-    public function getStatus()
+    public function Status()
     {
         return ['Pending', 'Completed', 'Canceled'][$this->status];
+    }
+
+    public function StatusColor()
+    {
+        return ['warning', 'success', 'danger'][$this->status];
     }
 }

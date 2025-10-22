@@ -59,4 +59,23 @@ class Client extends Authenticatable
         return $this->hasMany(Review::class)
             ->where('from', 'freelancer');
     }
+
+    public function phone_number_verified()
+    {
+        return ['Not Verified', 'Verified'][$this->phone_number_verified];
+    }
+    public function phone_number_verified_color()
+    {
+        return ['danger', 'success'][$this->phone_number_verified];
+    }
+
+    public function payment_method_verified()
+    {
+        return ['Not Verified', 'Verified'][$this->payment_method_verified];
+    }
+
+    public function payment_method_verified_color()
+    {
+        return ['danger', 'success'][$this->payment_method_verified];
+    }
 }

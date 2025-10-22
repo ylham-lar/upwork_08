@@ -1,25 +1,50 @@
 @extends('admin.layouts.app')
-
 @section('content')
-<div class="container-xxl">
-    @foreach ($works as $work)
-    <div>
-        <div>{{$work->id}}</div>
-        <div>{{$work->uuid}}</div>
-        <div>{{$work->client_id}}</div>
-        <div>{{$work->freelancer_id}}</div>
-        <div>{{$work->profile_id}}</div>
-        <div>{{$work->title}}</div>
-        <div>{{$work->body}}</div>
-        <div>{{$work->experience_level}}</div>
-        <div>{{$work->job_type}}</div>
-        <div>{{$work->price}}</div>
-        <div>{{$work->number_of_proposals}}</div>
-        <div>{{$work->project_type}}</div>
-        <div>{{$work->project_length}}</div>
-        <div>{{$work->hours_per_week}}</div>
-        <div>{{$work->last_viewed}}</div>
-    </div>
-    @endforeach
+<div class="h2 pt-3 mb-3">
+    Works
+</div>
+<div class="table-responsive text-dark">
+    <table class="table table-striped table-hover table-bordered table-sm">
+        <thead class="small">
+            <tr>
+                <th>Id</th>
+                <th>Clients</th>
+                <th>Freelancers</th>
+                <th>Profiles</th>
+                <th>Price</th>
+                <th>Experience Level</th>
+                <th>Job Type</th>
+                <th>Project Type</th>
+                <th>Project Length</th>
+                <th>Hours Per Week</th>
+                <th>Work Skills</th>
+                <th>Proposals</th>
+                <th>Last Viewed</th>
+                <th>Created At</th>
+                <th>Updated At</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($works as $work)
+            <tr>
+                <td>{{$work->id}}</td>
+                <td>{{$work->client->first_name }} {{$work->client->last_name}}</td>
+                <td>{{$work->freelancer?->first_name}} {{$work->freelancer?->last_name}}</td>
+                <td>{{$work->profile?->id }}</td>
+                <td><i class="bi bi-currency-dollar"></i>{{$work->price}}</td>
+                <td>{{$work->experience_level()}}</td>
+                <td>{{$work->job_type()}}</td>
+                <td>{{$work->project_type()}}</td>
+                <td>{{$work->project_length()}}</td>
+                <td>{{$work->hours_per_week()}}</td>
+                <td><a href="{{ route('admin.skill', ['work' => $work->id]) }}" class="text-decoration-none" target="_blank"><i class="bi-box-arrow-up-right"> </i>{{ $work->work_skills_count }}</a></td>
+                <td><a href="{{ route('admin.proposal', ['work' => $work->id]) }}" class="text-decoration-none" target="_blank"><i class="bi-box-arrow-up-right"> </i>{{ $work->proposals_count }}</a></td>
+                <td><i class="bi bi-clock pe-1"></i>{{$work->last_viewed}}</td>
+                <td><i class="bi bi-clock pe-1"></i>{{$work->created_at}}</td>
+                <td><i class="bi bi-clock pe-1"></i>{{$work->updated_at}}</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
 </div>
 @endsection

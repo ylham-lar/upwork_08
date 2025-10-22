@@ -10,7 +10,8 @@ class WorkController extends Controller
 {
     public function index()
     {
-        $works = Work::orderBy('id', 'desc')
+        $works = Work::orderBy('id')
+            ->withCount('proposals', 'workSkills')
             ->get();
 
         return view('admin.work.index')->with([

@@ -10,7 +10,7 @@ class LocationController extends Controller
 {
     public function index()
     {
-        $locations = Location::orderBy('id', 'desc')
+        $locations = Location::orderBy('id')
             ->get();
 
         return view('admin.location.index')->with([

@@ -10,7 +10,7 @@ class VerificationController extends Controller
 {
     public function index()
     {
-        $verifications = Verification::orderBy('id', 'desc')
+        $verifications = Verification::orderBy('id')
             ->get();
 
         return view('admin.verification.index')->with([

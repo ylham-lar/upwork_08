@@ -10,7 +10,7 @@ class ProfileController extends Controller
 {
     public function index()
     {
-        $profiles = Profile::orderBy('id', 'desc')
+        $profiles = Profile::orderBy('id')
             ->get();
 
         return view('admin.profile.index')->with([

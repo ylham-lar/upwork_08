@@ -23,7 +23,7 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return to_route('admin.dashboard')
+            return to_route('v1.admin.dashboard')
                 ->with([
                     'success' => (__('SuccessfullyLoggedIn')),
                 ]);

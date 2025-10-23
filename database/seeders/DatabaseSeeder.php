@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
             ]);
 
         User::factory()
-            ->count(5)
+            ->count(10)
             ->create();
 
         $this->call([
@@ -36,28 +36,28 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Freelancer::factory()
-            ->count(50)
+            ->count(70)
             ->has(Profile::factory()->count(2))
             ->create();
 
         Client::factory()
-            ->count(10)
+            ->count(40)
             ->create();
 
         Work::factory()
-            ->count(100)
+            ->count(200)
             ->create();
 
         Proposal::factory()
-            ->count(100)
+            ->count(300)
             ->create();
 
         Review::factory()
-            ->count(50)
+            ->count(100)
             ->create();
 
         Verification::factory()
-            ->count(10)
+            ->count(100)
             ->create();
     }
 }

@@ -7,15 +7,23 @@
     <table class="table table-striped table-hover table-bordered table-sm">
         <thead class="small">
             <tr>
-                <th>Id</th>
-                <th>Name</th>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Name
+                </th>
             </tr>
         </thead>
         <tbody>
             @foreach($locations as $location)
             <tr>
-                <td>{{ $location->id }}</td>
-                <td><i class="bi bi-geo-alt pe-1"></i>{{$location->name}}</td>
+                <td>
+                    {{ $location->id }}
+                </td>
+                <td>
+                    <i class="bi bi-geo-alt pe-1"></i>{{$location->name}}
+                </td>
             </tr>
             @endforeach
         </tbody>

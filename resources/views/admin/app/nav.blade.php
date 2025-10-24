@@ -15,11 +15,11 @@
                         Security
                     </button>
                     <ul class="dropdown-menu">
-                        <li> <a class="dropdown-item" href="{{ route('v1.admin.ipaddress') }}">IpAddres</a></li>
-                        <li> <a class="dropdown-item" href="{{ route('v1.admin.useragent') }}">UserAgent</a></li>
-                        <li> <a class="dropdown-item" href="{{ route('v1.admin.authattempt') }}">AuthAttempt</a></li>
-                        <li> <a class="dropdown-item" href="{{ route('v1.admin.visitor') }}">Visitor</a></li>
-                        <li> <a class="dropdown-item" href="{{ route('v1.admin.verification') }}">Verification</a></li>
+                        <li> <a class="dropdown-item" href="{{ route('v1.admin.ipaddress.index') }}">IpAddres</a></li>
+                        <li> <a class="dropdown-item" href="{{ route('v1.admin.useragent.index') }}">UserAgent</a></li>
+                        <li> <a class="dropdown-item" href="{{ route('v1.admin.authattempt.index') }}">AuthAttempt</a></li>
+                        <li> <a class="dropdown-item" href="{{ route('v1.admin.visitor.index') }}">Visitor</a></li>
+                        <li> <a class="dropdown-item" href="{{ route('v1.admin.verification.index') }}">Verification</a></li>
                     </ul>
                 </div>
                 <div class="dropdown ms-auto">
@@ -27,10 +27,10 @@
                         Users
                     </button>
                     <ul class="dropdown-menu">
-                        <li> <a class="dropdown-item" href="{{ route('v1.admin.user') }}">User</a></li>
-                        <li> <a class="dropdown-item" href="{{ route('v1.admin.client') }}">Client</a></li>
-                        <li> <a class="dropdown-item" href="{{ route('v1.admin.freelancer') }}">Freelancer</a></li>
-                        <li> <a class="dropdown-item" href="{{ route('v1.admin.profile') }}">Profile</a></li>
+                        <li> <a class="dropdown-item" href="{{ route('v1.admin.user.index') }}">User</a></li>
+                        <li> <a class="dropdown-item" href="{{ route('v1.admin.client.index') }}">Client</a></li>
+                        <li> <a class="dropdown-item" href="{{ route('v1.admin.freelancer.index') }}">Freelancer</a></li>
+                        <li> <a class="dropdown-item" href="{{ route('v1.admin.profile.index') }}">Profile</a></li>
                     </ul>
                 </div>
                 <div class="dropdown ms-auto">
@@ -38,9 +38,9 @@
                         Catalogs
                     </button>
                     <ul class="dropdown-menu">
-                        <li> <a class="dropdown-item" href="{{ route('v1.admin.skill') }}">Skills</a></li>
-                        <li> <a class="dropdown-item" href="{{ route('v1.admin.location') }}">Locations</a></li>
-                        <li> <a class="dropdown-item" href="{{ route('v1.admin.review') }}">Reviews</a></li>
+                        <li> <a class="dropdown-item" href="{{ route('v1.admin.skill.index') }}">Skills</a></li>
+                        <li> <a class="dropdown-item" href="{{ route('v1.admin.location.index') }}">Locations</a></li>
+                        <li> <a class="dropdown-item" href="{{ route('v1.admin.review.index') }}">Reviews</a></li>
                     </ul>
                 </div>
                 <div class="dropdown ms-auto">
@@ -48,8 +48,8 @@
                         Work
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{ route('v1.admin.work') }}">Works</a></li>
-                        <li><a class="dropdown-item" href="{{ route('v1.admin.proposal') }}">Propoals</a></li>
+                        <li><a class="dropdown-item" href="{{ route('v1.admin.work.index') }}">Works</a></li>
+                        <li><a class="dropdown-item" href="{{ route('v1.admin.proposal.index') }}">Propoals</a></li>
                     </ul>
                 </div>
             </ul>

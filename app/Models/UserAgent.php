@@ -21,7 +21,6 @@ class UserAgent extends Model
         return $this->hasMany(Visitor::class);
     }
 
-    //
 
     public function getUa()
     {

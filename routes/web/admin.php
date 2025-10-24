@@ -30,20 +30,111 @@ Route::middleware('auth')
             ->name('v1.admin.')
             ->group(function () {
                 Route::get('', [DashboardController::class, 'index'])->name('dashboard');
-                Route::get('ipaddress', [IpAddresController::class, 'index'])->name('ipaddress');
-                Route::get('useragent', [UserAgentController::class, 'index'])->name('useragent');
-                Route::get('authattempt', [AuthAttemptController::class, 'index'])->name('authattempt');
-                Route::get('visitor', [VisitorController::class, 'index'])->name('visitor');
-                Route::get('verification', [VerificationController::class, 'index'])->name('verification');
-                Route::get('user', [UserController::class, 'index'])->name('user');
-                Route::get('client', [ClientController::class, 'index'])->name('client');
-                Route::get('freelancer', [FreelancerController::class, 'index'])->name('freelancer');
-                Route::get('profile', [ProfileController::class, 'index'])->name('profile');
-                Route::get('skill', [SkillController::class, 'index'])->name('skill');
-                Route::get('location', [LocationController::class, 'index'])->name('location');
-                Route::get('review', [ReviewController::class, 'index'])->name('review');
-                Route::get('work', [WorkController::class, 'index'])->name('work');
-                Route::get('proposal', [ProposalController::class, 'index'])->name('proposal');
+
+                Route::controller(IpAddresController::class)
+                    ->prefix('ipaddress')
+                    ->name('ipaddress.')
+                    ->group(function () {
+                        Route::get('', 'index')->name('index');
+                    });
+
+                Route::controller(UserAgentController::class)
+                    ->prefix('useragent')
+                    ->name('useragent.')
+                    ->group(function () {
+                        Route::get('', 'index')->name('index');
+                    });
+
+                Route::controller(AuthAttemptController::class)
+                    ->prefix('authattempt')
+                    ->name('authattempt.')
+                    ->group(function () {
+                        Route::get('', 'index')->name('index');
+                    });
+
+                Route::controller(VisitorController::class)
+                    ->prefix('visitor')
+                    ->name('visitor.')
+                    ->group(function () {
+                        Route::get('', 'index')->name('index');
+                    });
+
+                Route::controller(VerificationController::class)
+                    ->prefix('verification')
+                    ->name('verification.')
+                    ->group(function () {
+                        Route::get('', 'index')->name('index');
+                    });
+
+                Route::controller(UserController::class)
+                    ->prefix('user')
+                    ->name('user.')
+                    ->group(function () {
+                        Route::get('', 'index')->name('index');
+                    });
+
+                Route::controller(ClientController::class)
+                    ->prefix('client')
+                    ->name('client.')
+                    ->group(function () {
+                        Route::get('', 'index')->name('index');
+                    });
+
+                Route::controller(FreelancerController::class)
+                    ->prefix('freelancer')
+                    ->name('freelancer.')
+                    ->group(function () {
+                        Route::get('', 'index')->name('index');
+                    });
+
+                Route::controller(ProfileController::class)
+                    ->prefix('profile')
+                    ->name('profile.')
+                    ->group(function () {
+                        Route::get('', 'index')->name('index');
+                    });
+
+                Route::controller(SkillController::class)
+                    ->prefix('skill')
+                    ->name('skill.')
+                    ->group(function () {
+                        Route::get('', 'index')->name('index');
+                    });
+
+                Route::controller(LocationController::class)
+                    ->prefix('location')
+                    ->name('location.')
+                    ->group(function () {
+                        Route::get('', 'index')->name('index');
+                    });
+
+                Route::controller(WorkController::class)
+                    ->prefix('work')
+                    ->name('work.')
+                    ->group(function () {
+                        Route::get('', 'index')->name('index');
+                    });
+
+                Route::controller(WorkController::class)
+                    ->prefix('work')
+                    ->name('work.')
+                    ->group(function () {
+                        Route::get('', 'index')->name('index');
+                    });
+
+                Route::controller(ReviewController::class)
+                    ->prefix('review')
+                    ->name('review.')
+                    ->group(function () {
+                        Route::get('', 'index')->name('index');
+                    });
+
+                Route::controller(ProposalController::class)
+                    ->prefix('proposal')
+                    ->name('proposal.')
+                    ->group(function () {
+                        Route::get('', 'index')->name('index');
+                    });
             });
     });
 

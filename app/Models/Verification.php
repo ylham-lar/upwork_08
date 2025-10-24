@@ -25,7 +25,12 @@ class Verification extends Model
 
     public function getMethod()
     {
-        return ['📱 Phone', '📧 E-mail'][$this->method];
+        return ['Phone', 'E-mail'][$this->method];
+    }
+
+    public function getMethodIcon()
+    {
+        return ['telephone', 'envelope'][$this->method];
     }
 
     public function Status()

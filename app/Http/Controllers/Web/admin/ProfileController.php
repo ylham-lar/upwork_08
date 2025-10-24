@@ -13,10 +13,10 @@ class ProfileController extends Controller
     {
         $request->validate([
             'freelancer' => ['nullable', 'integer', 'min:1'],
-            'profile' => ['nullable', 'integer', 'min:1'],
+            'profile_id' => ['nullable', 'integer', 'min:1'],
         ]);
         $filter_freelancer = $request->has('freelancer') ? $request->freelancer : null;
-        $filter_profile = $request->has('profile') ? $request->profile : null;
+        $filter_profile = $request->has('profile_id') ? $request->profile_id : null;
 
         $profiles = Profile::when(isset($filter_freelancer), fn ($query) => $query->where('freelancer_id', $filter_freelancer))
             ->when(isset($filter_profile), fn ($query) => $query->where('id', $filter_profile))

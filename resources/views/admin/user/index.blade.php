@@ -7,17 +7,29 @@
     <table class="table table-striped table-hover table-bordered table-sm">
         <thead class="small">
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Username</th>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Username
+                </th>
             </tr>
         </thead>
         <tbody>
             @foreach($users as $user)
             <tr>
-                <td>{{$user->id}}</td>
-                <td>{{$user->name}}</td>
-                <td>{{$user->username}}</td>
+                <td>
+                    {{$user->id}}
+                </td>
+                <td>
+                    {{$user->name}}
+                </td>
+                <td>
+                    {{$user->username}}
+                </td>
             </tr>
             @endforeach
         </tbody>

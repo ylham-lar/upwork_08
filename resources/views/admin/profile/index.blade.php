@@ -7,23 +7,47 @@
     <table class="table table-striped table-hover table-bordered table-sm">
         <thead class="small">
             <tr>
-                <th>Id</th>
-                <th>Freelancer Id</th>
-                <th>Title</th>
-                <th>Body Letter</th>
-                <th>Created At</th>
-                <th>Updated At</th>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Freelancer
+                </th>
+                <th>
+                    Title
+                </th>
+                <th>
+                    Body Letter
+                </th>
+                <th>
+                    Created At
+                </th>
+                <th>
+                    Updated At
+                </th>
             </tr>
         </thead>
         <tbody>
             @foreach($profiles as $profile)
             <tr class="p-3">
-                <td>{{$profile->id }}</td>
-                <td><a href="{{ route('v1.admin.freelancer', ['freelancer' => $profile->freelancer_id]) }}" target="_blank">{{$profile->freelancer?->id}}</a></td>
-                <td>{{$profile->title}}</td>
-                <td>{{ Str::limit($profile->body, 90) }}</td>
-                <td><i class="bi bi-clock pe-1"></i>{{$profile->created_at->format('H:i:s d.m.Y')}}</td>
-                <td><i class="bi bi-clock pe-1"></i>{{$profile->updated_at->format('H:i:s d.m.Y')}}</td>
+                <td>
+                    {{$profile->id }}
+                </td>
+                <td>
+                    {{$profile->freelancer?->first_name}} {{$profile->freelancer?->last_name}}
+                </td>
+                <td>
+                    {{$profile->title}}
+                </td>
+                <td>
+                    {{ Str::limit($profile->body, 80) }}
+                </td>
+                <td>
+                    <i class="bi bi-clock pe-1"></i>{{$profile->created_at->format('H:i:s d.m.Y')}}
+                </td>
+                <td>
+                    <i class="bi bi-clock pe-1"></i>{{$profile->updated_at->format('H:i:s d.m.Y')}}
+                </td>
             </tr>
             @endforeach
         </tbody>

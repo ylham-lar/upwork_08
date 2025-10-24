@@ -4,29 +4,32 @@
     Skills
 </div>
 <div class="table-responsive text-dark text-center">
-    <table class="table table-striped table-hover table-bordered table-sm">
-        <thead class="small">
+    <table class="table table-bordered table-striped table-hover align-middle shadow-sm small">
+        <thead class="table-light text-center align-middle">
             <tr>
-                <th>
-                    Id
-                </th>
-                <th>
-                    Name
-                </th>
+                <th>ID</th>
+                <th>Name</th>
             </tr>
         </thead>
         <tbody>
-            @foreach($skills as $skill)
+            @forelse($skills as $skill)
             <tr>
-                <td>
-                    {{$skill->id}}
+                <td class="text-center fw-medium text-muted">
+                    {{ $skill->id }}
                 </td>
                 <td>
-                    {{$skill->name}}
+                    {{ $skill->name }}
                 </td>
             </tr>
-            @endforeach
+            @empty
+            <tr>
+                <td colspan="2" class="text-center text-muted py-4">
+                    <i class="bi bi-exclamation-circle text-warning me-2"></i>No skills found
+                </td>
+            </tr>
+            @endforelse
         </tbody>
     </table>
+
 </div>
 @endsection

@@ -4,76 +4,82 @@
     Visitors
 </div>
 <div class="table-responsive text-dark  text-center">
-    <table class="table table-striped table-hover table-bordered table-sm">
-        <thead class="small">
+    <table class="table table-bordered table-striped table-hover align-middle shadow-sm small">
+        <thead class="table-light text-center align-middle">
             <tr>
-                <th>
-                    Id
-                </th>
-                <th>
-                    Ip Addres
-                </th>
-                <th>
-                    User Agent
-                </th>
-                <th>
-                    Hits
-                </th>
-                <th>
-                    Suspect Hits
-                </th>
-                <th>
-                    Robot
-                </th>
-                <th>
-                    Api
-                </th>
-                <th>
-                    Disable
-                </th>
-                <th>
-                    Created At
-                </th>
-                <th>
-                    Updated At
-                </th>
+                <th>ID</th>
+                <th><i class="bi bi-wifi text-primary me-1"></i>IP Address</th>
+                <th><i class="bi bi-terminal text-primary me-1"></i>User Agent</th>
+                <th><i class="bi bi-activity text-primary me-1"></i>Hits</th>
+                <th><i class="bi bi-bug text-warning me-1"></i>Suspect Hits</th>
+                <th><i class="bi bi-robot text-primary me-1"></i>Robot</th>
+                <th><i class="bi bi-code-slash text-primary me-1"></i>API</th>
+                <th><i class="bi bi-slash-circle text-danger me-1"></i>Disabled</th>
+                <th><i class="bi bi-clock-history text-secondary me-1"></i>Created At</th>
+                <th><i class="bi bi-clock text-secondary me-1"></i>Updated At</th>
             </tr>
         </thead>
         <tbody>
-            @foreach($visitors as $visitor)
-            <tr class="p-3">
-                <td>
-                    {{ $visitor->id }}</td>
-                <td>
-                    <a href="{{ route('v1.admin.ipaddress.index', ['ip_address_id' => $visitor->ip_address_id]) }}" target="_blank">{{$visitor->ip_address?->ip_address }} </a>
+            @forelse($visitors as $visitor)
+            <tr>
+                <td class="text-center fw-medium text-muted">
+                    {{ $visitor->id }}
                 </td>
                 <td>
-                    {{$visitor->useragent?->user_agent }}
+                    @if($visitor->ip_address)
+                    <a href="{{ route('v1.admin.ipaddress.index', ['ip_address_id' => $visitor->ip_address_id]) }}" target="_blank" class="text-decoration-none text-primary fw-semibold">
+                        <i class="bi bi-link-45deg me-1"></i>{{ $visitor->ip_address->ip_address }}
+                    </a>
+                    @else
+                    <span class="text-muted">—</span>
+                    @endif
+                </td>
+                <td class="text-break">
+                    <i class="bi bi-terminal me-1 text-secondary"></i>{{ $visitor->useragent?->user_agent ?? 'Unknown' }}
                 </td>
                 <td>
-                    {{$visitor->hits}}
+                    <span class="badge bg-success-subtle text-success px-3 py-2">{{ $visitor->hits }}</span>
                 </td>
                 <td>
-                    {{$visitor->suspect_hits}}
+                    <span class="badge bg-warning-subtle text-warning px-3 py-2">{{ $visitor->suspect_hits }}</span>
                 </td>
                 <td>
-                    {{$visitor->robot}}
+                    @if($visitor->robot)
+                    <span class="badge bg-warning-subtle text-warning px-3 py-2">Yes</span>
+                    @else
+                    <span class="badge bg-success-subtle text-success px-3 py-2">No</span>
+                    @endif
                 </td>
                 <td>
-                    {{$visitor->api}}
+                    @if($visitor->api)
+                    <span class="badge bg-info-subtle text-info px-3 py-2">Yes</span>
+                    @else
+                    <span class="badge bg-secondary-subtle text-secondary px-3 py-2">No</span>
+                    @endif
                 </td>
                 <td>
-                    {{$visitor->disable}}
+                    @if($visitor->disable)
+                    <span class="badge bg-danger-subtle text-danger px-3 py-2">Disabled</span>
+                    @else
+                    <span class="badge bg-success-subtle text-success px-3 py-2">Active</span>
+                    @endif
                 </td>
-                <td>
-                    <i class="bi bi-clock pe-1"></i>{{$visitor->created_at->format('H:i:s d.m.Y') }}
+                <td class="text-nowrap text-secondary">
+                    <i class="bi bi-clock me-1"></i>{{ $visitor->created_at->format('H:i d.m.Y') }}
                 </td>
-                <td>
-                    <i class="bi bi-clock pe-1"></i>{{$visitor->updated_at->format('H:i:s d.m.Y') }}
+                <td class="text-nowrap text-secondary">
+                    <i class="bi bi-clock-history me-1"></i>{{ $visitor->updated_at->format('H:i d.m.Y') }}
                 </td>
             </tr>
-            @endforeach
+            @empty
+            <tr>
+                <td colspan="10" class="text-center text-muted py-4">
+                    <i class="bi bi-exclamation-circle text-warning me-2"></i>No visitors found
+                </td>
+            </tr>
+            @endforelse
         </tbody>
     </table>
+
 </div>
 @endsection

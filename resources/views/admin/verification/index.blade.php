@@ -4,59 +4,50 @@
     Verifications
 </div>
 <div class="table-responsive text-dark ">
-    <table class="table table-striped table-hover table-bordered table-sm">
-        <thead class="small text-center">
+    <table class="table table-bordered table-striped table-hover align-middle shadow-sm small">
+        <thead class="table-light text-center align-middle">
             <tr>
-                <th>
-                    Id
-                </th>
-                <th>
-                    Username
-                </th>
-                <th>
-                    Code
-                </th>
-                <th>
-                    Method
-                </th>
-                <th>
-                    Status
-                </th>
-                <th>
-                    Created At
-                </th>
-                <th>
-                    Updated At
-                </th>
+                <th>ID</th>
+                <th><i class="bi bi-person-fill text-primary me-1"></i>Username</th>    
+                <th><i class="bi bi-shield-lock-fill text-primary me-1"></i>Method</th>
+                <th><i class="bi bi-info-circle-fill text-primary me-1"></i>Status</th>
+                <th><i class="bi bi-clock-fill text-primary me-1"></i>Created At</th>
+                <th><i class="bi bi-clock-history text-primary me-1"></i>Updated At</th>
             </tr>
         </thead>
         <tbody>
-            @foreach($verifications as $verification)
-            <tr class="p-3">
-                <td class="text-center">
-                    {{$verification->id}}
+            @forelse($verifications as $verification)
+            <tr>
+                <td class="text-center fw-medium text-muted">
+                    {{ $verification->id }}
                 </td>
-                <td class="">
-                    {{$verification->username}}
-                </td>
-                <td class="text-center">
-                    <i class="bi bi-person-lock pe-1"></i>{{$verification->code}}
+                <td>
+                    <i class="bi bi-person-fill me-1 text-secondary"></i>{{ $verification->username }}
                 </td>
                 <td class="text-center">
-                    <i class="bi-{{ $verification->getMethodIcon() }}"></i> {{$verification->getMethod()}}
+                    <i class="bi-{{ $verification->getMethodIcon() }} me-1 text-secondary"></i>{{ $verification->getMethod() }}
                 </td>
                 <td class="text-center">
-                     <span class="badge bg-{{ $verification->StatusColor()}}-subtle text-{{ $verification->StatusColor() }}"> {{ $verification->Status() }} </span>
-                    </td>
-                <td class="text-center">
-                    <i class="bi bi-clock pe-1"></i>{{$verification->created_at->format('H:i:s d.m.Y')}}
+                    <span class="badge bg-{{ $verification->StatusColor() }}-subtle text-{{ $verification->StatusColor() }} px-3 py-2">
+                        {{ $verification->Status() }}
+                    </span>
                 </td>
                 <td class="text-center">
-                    <i class="bi bi-clock pe-1"></i>{{$verification->updated_at->format('H:i:s d.m.Y')}}
+                    <i class="bi bi-clock me-1 text-secondary"></i>{{ $verification->created_at->format('H:i:s d.m.Y') }}
+                </td>
+                <td class="text-center">
+                    <i class="bi bi-clock me-1 text-secondary"></i>{{ $verification->updated_at->format('H:i:s d.m.Y') }}
                 </td>
             </tr>
-            @endforeach
+            @empty
+            <tr>
+                <td colspan="7" class="text-center text-muted py-4">
+                    <i class="bi bi-exclamation-circle text-warning me-2"></i>No verifications found
+                </td>
+            </tr>
+            @endforelse
         </tbody>
     </table>
+
 </div>
 @endsection

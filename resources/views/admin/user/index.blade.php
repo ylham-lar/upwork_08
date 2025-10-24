@@ -4,35 +4,36 @@
     Users
 </div>
 <div class="table-responsive text-dark text-center">
-    <table class="table table-striped table-hover table-bordered table-sm">
-        <thead class="small">
+    <table class="table table-bordered table-striped table-hover align-middle shadow-sm small">
+        <thead class="table-light text-center align-middle">
             <tr>
-                <th>
-                    Id
-                </th>
-                <th>
-                    Name
-                </th>
-                <th>
-                    Username
-                </th>
+                <th>ID</th>
+                <th><i class="bi bi-person-fill text-primary me-1"></i>Name</th>
+                <th><i class="bi bi-person-badge-fill text-primary me-1"></i>Username</th>
             </tr>
         </thead>
         <tbody>
-            @foreach($users as $user)
+            @forelse($users as $user)
             <tr>
-                <td>
-                    {{$user->id}}
+                <td class="text-center fw-medium text-muted">
+                    {{ $user->id }}
                 </td>
                 <td>
-                    {{$user->name}}
+                    <i class="bi bi-person-fill me-1 text-secondary"></i>{{ $user->name }}
                 </td>
                 <td>
-                    {{$user->username}}
+                    <i class="bi bi-person-badge-fill me-1 text-secondary"></i>{{ $user->username }}
                 </td>
             </tr>
-            @endforeach
+            @empty
+            <tr>
+                <td colspan="3" class="text-center text-muted py-4">
+                    <i class="bi bi-exclamation-circle text-warning me-2"></i>No users found
+                </td>
+            </tr>
+            @endforelse
         </tbody>
     </table>
+
 </div>
 @endsection

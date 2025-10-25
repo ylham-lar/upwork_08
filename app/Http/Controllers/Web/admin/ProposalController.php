@@ -12,15 +12,15 @@ class ProposalController extends Controller
     public function index(Request $request)
     {
         $request->validate([
-            'work' => ['nullable', 'integer', 'min:1'],
-            'freelancer' => ['nullable', 'integer', 'min:1'],
-            'profile' => ['nullable', 'integer', 'min:1'],
-            'proposal' => ['nullable', 'integer', 'min:1'],
+            'work_id' => ['nullable', 'integer', 'min:1'],
+            'freelancer_id' => ['nullable', 'integer', 'min:1'],
+            'profile_id' => ['nullable', 'integer', 'min:1'],
+            'proposal_id' => ['nullable', 'integer', 'min:1'],
         ]);
-        $filter_work = $request->has('work') ? $request->work : null;
-        $filter_freelancer = $request->has('freelancer') ? $request->freelancer : null;
-        $filter_profile = $request->has('profile') ? $request->profile : null;
-        $filter_proposal = $request->has('proposal') ? $request->proposal : null;
+        $filter_work = $request->has('work_id') ? $request->work_id : null;
+        $filter_freelancer = $request->has('freelancer_id') ? $request->freelancer_id : null;
+        $filter_profile = $request->has('profile_id') ? $request->profile_id : null;
+        $filter_proposal = $request->has('proposal_id') ? $request->proposal_id : null;
 
         $proposals = Proposal::when(isset($filter_work), fn ($query) => $query->where('work_id', $filter_work))
             ->when(isset($filter_freelancer), fn ($query) => $query->where('freelancer_id', $filter_freelancer))

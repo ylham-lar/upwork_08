@@ -12,14 +12,14 @@ class ReviewController extends Controller
     public function index(Request $request)
     {
         $request->validate([
-            'client' => ['nullable', 'integer', 'min:1'],
-            'freelancer' => ['nullable', 'integer', 'min:1'],
-            'review' => ['nullable', 'integer', 'min:1'],
+            'client_id' => ['nullable', 'integer', 'min:1'],
+            'freelancer_id' => ['nullable', 'integer', 'min:1'],
+            'review_id' => ['nullable', 'integer', 'min:1'],
         ]);
 
-        $filter_client = $request->has('client') ? $request->client : null;
-        $filter_freelancer = $request->has('freelancer') ? $request->freelancer : null;
-        $filter_review = $request->has('review') ? $request->review : null;
+        $filter_client = $request->has('client_id') ? $request->client_id : null;
+        $filter_freelancer = $request->has('freelancer_id') ? $request->freelancer_id : null;
+        $filter_review = $request->has('review_id') ? $request->review_id : null;
 
         $reviews = Review::when(isset($filter_client), fn ($query) => $query->where('client_id', $filter_client))
             ->when(isset($filter_freelancer), fn ($query) => $query->where('freelancer_id', $filter_freelancer))

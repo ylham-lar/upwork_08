@@ -24,12 +24,13 @@
                     {{ $review->id }}
                 </td>
                 <td>
-                    <i class="bi bi-person-fill me-1 text-secondary"></i>
-                    {{ $review->freelancer?->first_name }} {{ $review->freelancer?->last_name }}
+                    <i class="bi bi-person-fill me-1 text-secondary"></i><a href="{{ route('v1.admin.freelancer.index', ['freelancer_id' => $review->freelancer_id]) }}" target="_blank">
+                        {{ $review->freelancer?->first_name }} {{ $review->freelancer?->last_name }}</a>
+
                 </td>
                 <td>
-                    <i class="bi bi-person-badge-fill me-1 text-secondary"></i>
-                    {{ $review->client->first_name }} {{ $review->client->last_name }}
+                    <i class="bi bi-person-badge-fill me-1 text-secondary"></i><a href="{{ route('v1.admin.client.index', ['client_id' => $review->client_id]) }}" target="_blank">
+                        {{ $review->client->first_name }} {{ $review->client->last_name }} </a>
                 </td>
                 <td class="text-center">
                     <i class="bi bi-envelope me-1 text-secondary"></i>{{ $review->from }}

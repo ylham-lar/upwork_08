@@ -27,16 +27,19 @@
         <tbody>
             @forelse($works as $work)
             <tr>
-                <td class="text-center fw-medium text-muted">{{ $work->id }}</td>
+                <td class="text-center fw-medium text-muted">
+                    <a href="{{ route('v1.admin.work.index', ['work_id' => $work->id]) }}" target="_blank">{{ $work->id }}</a>
+                </td>
 
                 <td>
                     <i class="bi bi-person-badge-fill me-1 text-secondary"></i>
-                    {{ $work->client->first_name }} {{ $work->client->last_name }}
+                    <a href="{{ route('v1.admin.client.index', ['client_id' => $work->client->id]) }}" target="_blank">{{$work->client->first_name }} {{$work->client->last_name}}</a>
                 </td>
 
                 <td>
                     <i class="bi bi-person-fill me-1 text-secondary"></i>
-                    {{ $work->freelancer?->first_name }} {{ $work->freelancer?->last_name }}
+                    <a href="{{ route('v1.admin.freelancer.index', ['freelancer_id' => $work->freelancer?->id]) }}" target="_blank">{{ $work->freelancer?->first_name }} {{ $work->freelancer?->last_name }}</a>
+
                 </td>
 
                 <td>

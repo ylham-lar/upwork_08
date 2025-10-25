@@ -23,7 +23,7 @@
                 </td>
                 <td>
                     <i class="bi bi-person-fill me-1 text-secondary"></i>
-                    <a href="{{ route('v1.admin.freelancer.index', ['freelancer' => $profile->freelancer_id]) }}" target="_blank">{{ $profile->freelancer?->first_name }} {{ $profile->freelancer?->last_name }}</a> 
+                    {{ $profile->freelancer?->first_name }} {{ $profile->freelancer?->last_name }}
                 </td>
                 <td>
                     <i class="bi bi-card-text me-1 text-secondary"></i>{{ $profile->title }}

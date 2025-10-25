@@ -25,7 +25,7 @@
             <tr>
                 <td class="text-center fw-medium text-muted">{{ $client->id }}</td>
                 <td>{{ $client->location?->name ?? '🌍 World' }}</td>
-                <td class="fw-semibold">{{ $client->first_name }} {{ $client->last_name }}</td>
+                <td class="fw-semibold">{{ $client->first_name }} {{ $client->last_name }} </td>
                 <td class="text-muted">{{ $client->username }}</td>
                 <td>
                     <i class="bi bi-star-fill text-warning me-1"></i>{{ number_format($client->rating, 1) }}

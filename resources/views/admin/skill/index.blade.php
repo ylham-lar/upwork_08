@@ -15,7 +15,7 @@
             @forelse($skills as $skill)
             <tr>
                 <td class="text-center fw-medium text-muted">
-                    {{ $skill->id }}
+                   {{ $skill->id }}
                 </td>
                 <td>
                     {{ $skill->name }}

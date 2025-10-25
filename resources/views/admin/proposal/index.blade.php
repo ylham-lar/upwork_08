@@ -20,7 +20,8 @@
         <tbody>
             @forelse($proposals as $proposal)
             <tr>
-                <td class="text-center fw-medium text-muted">{{ $proposal->id }}</td>
+                <td class="text-center fw-medium text-muted">
+                    <a href="{{ route('v1.admin.proposal.index', ['proposal_id' => $proposal->id]) }}" target="_blank">{{ $proposal->id }}</a></td>
 
                 <td class="text-center">
                     <a href="{{ route('v1.admin.work.index', ['work_id' => $proposal->work_id]) }}" target="_blank">
@@ -36,7 +37,8 @@
 
                 <td>
                     <i class="bi bi-person-fill me-1 text-secondary"></i>
-                    {{ $proposal->freelancer?->first_name }} {{ $proposal->freelancer?->last_name }}
+                    <a href="{{ route('v1.admin.freelancer.index', ['freelancer_id' => $proposal->freelancer_id]) }}" target="_blank">
+                        {{ $proposal->freelancer?->first_name }} {{ $proposal->freelancer?->last_name }} </a>
                 </td>
 
                 <td>
